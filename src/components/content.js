@@ -20,7 +20,7 @@ class content extends Component {
     }
 
     async componentDidMount() {
-        let walletVerify = await Axios.get("/api/wallets");
+        let walletVerify = await Axios.get(process.env.REACT_APP_API+"/api/wallets");
         let cont=0
         walletVerify.data.map(wallets=>(cont++))
         if (cont<1) {
@@ -73,6 +73,7 @@ class content extends Component {
         const walletRequest = this.state.changeWalletRequest
         const walletSelected = this.state.selectedWallet
 
+       
         if (walletExist === false || walletRequest === true) {
             return <NewWallet
                 walletIDHandle={walletSelected}    

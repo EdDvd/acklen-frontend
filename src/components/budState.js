@@ -28,7 +28,7 @@ class budState extends Component {
 
     async componentDidMount() {
         const id = this.state.walletSelected
-        let walletInfo = await Axios.get('api/wallets/' + id);
+        let walletInfo = await Axios.get(process.env.REACT_APP_API+'/api/wallets/' + id);
         let transactionsInfo = walletInfo.data.transactions;
         let sumOutputs = 0;
         let sumInputs = 0;
@@ -72,7 +72,7 @@ class budState extends Component {
 
    
     postTrnsaction=(trans)=>{
-        Axios.post('/api/wallets/' + this.state.walletSelected + '/transactions', (trans))
+        Axios.post(process.env.REACT_APP_API+'/api/wallets/' + this.state.walletSelected + '/transactions', (trans))
                 .then(response => {
                     console.log(response)
                     console.log(this.state)

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Axios from 'axios'
 class Transactions extends Component {
 deleteMethod=()=>{
-    Axios.delete('api/wallets/'+this.props.walletSelected+'/transactions/'+this.props.transactionHandle._id)
+    Axios.delete(process.env.REACT_APP_API+'api/wallets/'+this.props.walletSelected+'/transactions/'+this.props.transactionHandle._id)
     .then(response => {
         console.log(response)
         this.props.refresh()

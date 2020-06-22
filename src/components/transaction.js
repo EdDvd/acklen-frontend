@@ -61,7 +61,7 @@ class Transaction extends Component {
             this.setState({ msgVisible: "visible", msg: "amount cannot be 0" })
         }
         else {
-            Axios.post('/api/wallets/' + this.props.ID + '/transactions', (this.state))
+            Axios.post(process.env.REACT_APP_API+'/api/wallets/' + this.props.ID + '/transactions', (this.state))
                 .then(response => {
                     console.log(response)
                     this.props.refresh()

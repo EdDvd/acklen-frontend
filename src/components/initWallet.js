@@ -50,7 +50,7 @@ class NewWallet extends Component {
         }
         
         else if(walletID.data===undefined){
-            Axios.post('/api/wallets/', this.state)
+            Axios.post(process.env.REACT_APP_API+'/api/wallets/', this.state)
             .then(response => {
                // console.log(response)
                 this.setState({
@@ -62,7 +62,7 @@ class NewWallet extends Component {
            
         }
         else {
-            Axios.patch('/api/wallets/'+walletID, this.state)
+            Axios.patch(process.env.REACT_APP_API+'/api/wallets/'+walletID, this.state)
                 .then(response => {
                     console.log(response)
                     this.setState({

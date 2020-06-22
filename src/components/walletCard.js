@@ -24,7 +24,7 @@ class walletCard extends Component {
         this.setState({bgColor:"info"})
     }
     deleteMethod=()=>{
-        Axios.delete('/api/wallets/'+this.props.eachWalletHandle._id)
+        Axios.delete(process.env.REACT_APP_API+'/api/wallets/'+this.props.eachWalletHandle._id)
         this.props.refresh()
     }
     render() {
