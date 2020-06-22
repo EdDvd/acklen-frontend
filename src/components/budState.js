@@ -92,14 +92,16 @@ class budState extends Component {
                         <Row><Col><h2>outputs</h2></Col> <Col><h2>{this.state.outputs}</h2></Col></Row>
                         <Row><Col><h2>Total</h2></Col><Col><h2>{this.state.total}</h2></Col></Row>
                     </Col>
+                    <div className="bottonButtons">
                     <Button onClick={this.showModalMethod}>Expand</Button>{'  '}
                     <Button onClick={this.showAddModal}>New</Button>
-
+                    </div>
                     <Modal isOpen={this.state.showModal}
                              className="transModal">
                     <div>
                         <h4>In: {this.state.inputs}</h4>
                         <h4>Out: {this.state.outputs}</h4>
+                        <Button onClick={this.closeModalMethod}>Close</Button>
                         {this.state.transArray.map(transaction => (
                             <Transactions refresh={this.refresh}
                                           walletSelected={this.state.walletSelected} 
@@ -107,15 +109,13 @@ class budState extends Component {
                                           transactionHandle={transaction} />
                         )
                         )}
-                        <Button onClick={this.closeModalMethod}>Close</Button>
-                     </div>
+                        </div>
                     </Modal>
                         <Transaction ID={this.state.walletSelected}                               
                                  modalOpenHandle={this.state.addModal} 
                                  openClose={this.showAddModal}
                                  refresh={this.refresh}/>
-                   
-                </Container>
+                   </Container>
             </div>
         )
     }
