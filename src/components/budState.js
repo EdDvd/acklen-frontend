@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Modal from 'react-modal'
+import CardDeck from 'react-bootstrap/CardDeck'
 import Transactions from './transactions'
 import Transaction from './transaction'
 import Axios from 'axios'
@@ -102,6 +103,8 @@ class budState extends Component {
                         <h4>In: {this.state.inputs}</h4>
                         <h4>Out: {this.state.outputs}</h4>
                         <Button onClick={this.closeModalMethod}>Close</Button>
+                        <div>
+                         <CardDeck>   
                         {this.state.transArray.map(transaction => (
                             <Transactions refresh={this.refresh}
                                           walletSelected={this.state.walletSelected} 
@@ -109,6 +112,8 @@ class budState extends Component {
                                           transactionHandle={transaction} />
                         )
                         )}
+                        </CardDeck>
+                        </div>
                         </div>
                     </Modal>
                         <Transaction ID={this.state.walletSelected}                               
